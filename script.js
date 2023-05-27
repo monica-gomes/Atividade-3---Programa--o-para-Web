@@ -8,7 +8,6 @@ let Jogador1 = 0;
 let Jogador2 = 0;
 let jogadaAtual = 1;
 let rodadasJogadas = 0;
-let numeroRodada = 0;
 
 function rodarDado() {
     const sorteio = Math.floor(Math.random() * 6) + 1;
@@ -31,21 +30,21 @@ function rodarDado() {
         btJogador2.disabled = true;
     }
 
-
     if (rodadasJogadas === 10) {
         if (Jogador1 > Jogador2) {
-            resultado.innerText += "\nJogador 1: Você Venceu!";
+            resultado.innerText = "\nJogador 1: Você Venceu!";
         }
         else if (Jogador2 > Jogador1) {
-            resultado.innerText += "\nJogador 2: Você Venceu!";
+            resultado.innerText = "\nJogador 2: Você Venceu!";
         }
         else {
-            resultado.innerText += "\nEmpate!";
+            resultado.innerText = "\nEmpate!";
         }
 
         btJogador1.disabled = true;
         btJogador2.disabled = true;
     }
+    salvarJogo();
 }
 
 btJogador1.onclick = rodarDado;
@@ -60,3 +59,4 @@ btReiniciar.onclick = function () {
     btJogador1.disabled = false;
     btJogador2.disabled = false;
 }
+carregarJogo();
